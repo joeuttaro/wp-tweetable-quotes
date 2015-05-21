@@ -1,0 +1,115 @@
+
+/* ============================================================================================== */
+/* WP Tweetable Quotes v0.1 ===================================================================== */
+/* Authored by TJ Webb and Justin Bellefontaine ================================================= */
+/* ============================================================================================== */
+
+/* == Base Blockquote =========================================================================== */
+
+blockquote {
+  /* The width you set here also needs to be applied to '.tweetable:before' below. */
+  border-left: 7px solid #666;
+
+  /* You can customize your blockquote however you like, the plugin will adapt. */
+  margin: 50px 0;
+  padding: 20px 40px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* The plug-in assumes the use of an '<h2>' within the blockquote. You may change it if needed. */
+blockquote h2 {
+  margin: 0;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-weight: normal;
+  line-height: 1.3;
+  color: #555;
+}
+
+.tweetable {
+  /* Must be 'relative' in order to position the border overlay properly. */
+  position: relative;
+}
+
+/* == Overlay Border ============================================================================ */
+
+.tweetable:before {
+  display: block;
+  height: 0;
+
+  /* Use the same border width value here as on your blockquote. */
+  width: 7px;
+  background: #55acee;
+  content: " ";
+  position: absolute;
+
+  /* Offset the overlay border by the width of the blockquote border (same value). */
+  left: -7px;
+  top: 0;
+
+  /* Transition the height of the overlay border on mouse out. */
+  -webkit-transition: height 0.3s ease 0s;
+          transition: height 0.3s ease 0s;
+}
+
+.tweetable:hover:before {
+  /* Transition the height of the overlay border on hover. */
+  height: 100%;
+  -webkit-transition: height 0.3s ease 0s;
+          transition: height 0.3s ease 0s;
+}
+
+/* == Twitter Icon ============================================================================== */
+
+.tweetable-icon {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  /* This width may have to change depending on how large your icon is. Experiment with it. */
+  width: 45px;
+
+  /* Position the Twitter icon and add a slight rotation. */
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(-170deg) scale(0);
+          transform: translate3d(-50%, -50%, 0) rotate(-170deg) scale(0);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-170deg) scale(0);
+      -ms-transform: translateX(-50%) translateY(-50%) rotate(-170deg) scale(0);
+          transform: translateX(-50%) translateY(-50%) rotate(-170deg) scale(0);
+
+  /* This box shadow creates a white outline around the Twitter icon. Hidden by default. */
+  box-shadow: 0 0 0 0 white;
+  color: #55acee;
+  font-size: 1.75rem;
+  text-align: center;
+  border: 5px solid #55acee;
+  border-radius: 100%;
+  background: white;
+
+  /* Transition everything */
+  -webkit-transition: all 0.2s ease 0s;
+          transition: all 0.2s ease 0s;
+}
+
+.tweetable:hover .tweetable-icon {
+  /* Show the box shadow/outline. */
+  box-shadow: 0 0 0 5px white;
+
+  /* Position the icon, remove the rotation on hover. */
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(0deg) scale(1);
+          transform: translate3d(-50%, -50%, 0) rotate(0deg) scale(1);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(0deg) scale(1);
+      -ms-transform: translateX(-50%) translateY(-50%) rotate(0deg) scale(1);
+          transform: translateX(-50%) translateY(-50%) rotate(0deg) scale(1);
+  -webkit-transition: -webkit-transform 0.2s ease 0.2s, box-shadow 0.2s ease 0.2s;
+          transition: transform 0.2s ease 0.2s, box-shadow 0.2s ease 0.2s;
+}
+
+.tweetable:hover .tweetable-icon:hover {
+  background: #55acee;
+  color: #fff;
+  -webkit-transition: all 0.2s ease 0s;
+          transition: all 0.2s ease 0s;
+}
