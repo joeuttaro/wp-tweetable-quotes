@@ -7,7 +7,7 @@
 (function ($) {
     $(document).ready(function () {
         if($('blockquote.tweetable').length > 0) {
-            $('blockquote.tweetable').append('<a href="#" class="tweetable-icon"><i class="fa fa-twitter"></i></a>');
+            $('blockquote.tweetable').append('<a href="#" class="tweetable-icon"><i class="twt-icon-twitter"></i></a>');
         }
         $(document).on('click', '.tweetable-icon', function(e){
             var quote = '';
