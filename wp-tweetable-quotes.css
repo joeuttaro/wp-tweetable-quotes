@@ -144,3 +144,24 @@ blockquote h2 {
   -webkit-transition: all 0.2s ease 0s;
           transition: all 0.2s ease 0s;
 }
+
+blockquote {
+  padding: 20px 40px;
+}
+
+blockquote.tweetable i {
+  color: #55acee;
+}
+
+.tweetable-icon {
+  line-height: 1;
+  padding: 7px 0;
+  width: 55px;
+  margin-left: -4px;
+}
+
+blockquote.tweetable a:hover {
+  top: 50%;
+  left: 0;
+  border: 5px solid #55acee;
+}
