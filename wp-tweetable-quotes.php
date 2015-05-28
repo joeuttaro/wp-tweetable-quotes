@@ -36,7 +36,7 @@ function tweetable_quote_filter($content){
 /**
  * Enqueue Javascript & CSS
  */
-add_action('wp_enqueue_scripts', 'tweetable_quote_add_assets');
+add_action('wp_enqueue_scripts', 'tweetable_quote_add_assets', 40);
 
 function tweetable_quote_add_assets(){
     wp_enqueue_script('wp-tweetable-quotes-js', plugins_url('wp-tweetable-quotes') . '/wp-tweetable-quotes.js', array('jquery'));
