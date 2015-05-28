@@ -18,12 +18,13 @@ function tweetable_quote_filter($content){
     @$dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
     foreach($dom->getElementsByTagName('blockquote') as $blockquote){
         $blockquote->setAttribute('class', $blockquote->getAttribute('class') . ' tweetable');
-        $domP = $blockquote->getElementsByTagName('p');
+        //for now, don't replace p with h2
+        /*$domP = $blockquote->getElementsByTagName('p');
         for($i = $domP->length - 1; $i > -1; $i--){
             $p = $domP->item($i);
             $h2 = $dom->createElement("h2", $p->nodeValue);
             $blockquote->replaceChild($h2, $p);
-        }
+        }*/
     }
     $content = $dom->saveHTML();
 
