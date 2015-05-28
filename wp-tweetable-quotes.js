@@ -11,7 +11,7 @@
         }
         $(document).on('click', '.tweetable-icon', function(e){
             var quote = '';
-            $('h2', $(this).parent()).each(function(){
+            $('p', $(this).parent()).each(function(){
                 if(quote.length)
                     quote += ' ';
                 quote += $(this).text();

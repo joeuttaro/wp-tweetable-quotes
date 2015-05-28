@@ -18,12 +18,13 @@ function tweetable_quote_filter($content){
     @$dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
     foreach($dom->getElementsByTagName('blockquote') as $blockquote){
         $blockquote->setAttribute('class', $blockquote->getAttribute('class') . ' tweetable');
-        $domP = $blockquote->getElementsByTagName('p');
+        //for now, don't replace p with h2
+        /*$domP = $blockquote->getElementsByTagName('p');
         for($i = $domP->length - 1; $i > -1; $i--){
             $p = $domP->item($i);
             $h2 = $dom->createElement("h2", $p->nodeValue);
             $blockquote->replaceChild($h2, $p);
-        }
+        }*/
     }
     $content = $dom->saveHTML();
 
@@ -35,7 +36,7 @@ function tweetable_quote_filter($content){
 /**
  * Enqueue Javascript & CSS
  */
-add_action('wp_enqueue_scripts', 'tweetable_quote_add_assets');
+add_action('wp_enqueue_scripts', 'tweetable_quote_add_assets', 40);
 
 function tweetable_quote_add_assets(){
     wp_enqueue_script('wp-tweetable-quotes-js', plugins_url('wp-tweetable-quotes') . '/wp-tweetable-quotes.js', array('jquery'));

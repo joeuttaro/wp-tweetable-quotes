@@ -149,8 +149,9 @@ blockquote {
   padding: 20px 40px;
 }
 
-blockquote.tweetable i {
+blockquote.tweetable .tweetable-icon i {
   color: #55acee;
+  transition: all 0.2s ease 0s;
 }
 
 .tweetable-icon {
@@ -164,4 +165,9 @@ blockquote.tweetable a:hover {
   top: 50%;
   left: 0;
   border: 5px solid #55acee;
+}
+
+blockquote.tweetable a:hover i {
+  color: #fff;
+  transition: all 0.2s ease 0s;
 }
